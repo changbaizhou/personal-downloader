@@ -1,0 +1,13 @@
+#!/bin/sh
+
+remote_url="$2"
+
+case "$remote_url" in
+  https://github.com/changbaizhou/*|git@github.com:changbaizhou/*|ssh://git@github.com/changbaizhou/*)
+    exit 0
+    ;;
+  *)
+    echo "Push blocked: only GitHub repositories owned by changbaizhou are allowed." >&2
+    exit 1
+    ;;
+esac
